@@ -59,12 +59,14 @@
     
     __weak KIImageCollectionView *weakSelf = self;
     [zv setDidClickBlock:^(KIZoomImageView *view) {
-        [view setImageViewClipsToBounds:YES];
-        [UIView animateWithDuration:0.3 animations:^{
-            [view setZoomScale:view.minimumZoomScale animated:NO];
-            [view updateImageViewFrame:weakSelf.initialFrame];
-        }];
-        [weakSelf.superview performSelector:@selector(dismiss)];
+        if (!CGRectIsEmpty(weakSelf.initialFrame)) {
+            [view setImageViewClipsToBounds:YES];
+            [UIView animateWithDuration:0.3 animations:^{
+                [view setZoomScale:view.minimumZoomScale animated:NO];
+                [view updateImageViewFrame:weakSelf.initialFrame];
+            }];
+            [weakSelf.superview performSelector:@selector(dismiss)];
+        }
     }];
     
     UIImage *image = [UIImage imageNamed:@"1.jpg"];
@@ -74,18 +76,23 @@
     if (!self.isLoad && self.initialIndex == indexPath.row) {
         [zv setImageViewClipsToBounds:NO];
         [zv setImageViewContentMode:UIViewContentModeScaleAspectFill];
-        [zv updateImageViewFrame:self.initialFrame];
         
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [UIView animateWithDuration:0.3
-                              delay:0
-                            options:0
-                         animations:^{
-                             [zv updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
-                         } completion:^(BOOL finished) {
-                             [zv resetImageViewFrame];
-                             self.isLoad = YES;
-                         }];
+        if (!CGRectIsEmpty(self.initialFrame)) {
+            [zv updateImageViewFrame:self.initialFrame];
+            
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            [UIView animateWithDuration:0.3
+                                  delay:0
+                                options:0
+                             animations:^{
+                                 [zv updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
+                             } completion:^(BOOL finished) {
+                                 [zv resetImageViewFrame];
+                                 self.isLoad = YES;
+                             }];
+        } else {
+            self.isLoad = YES;
+        }
     }
     return cell;
 }

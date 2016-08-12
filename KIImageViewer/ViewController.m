@@ -41,7 +41,7 @@
     if (index == 0) {
         return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/57a7fb949535670b223a2391/1470981252.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
     }
-    return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/55ff58304ea04614400036e0/1458021819705.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
+    return [NSURL URLWithString:@"http://7xjcby.com1.z0.glb.clouddn.com/file/146492239680777v8el9pkht.png?imageMogr2/auto-orient/thumbnail/!50p"];
 }
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index {

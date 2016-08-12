@@ -114,7 +114,6 @@
                                  [cell setAlpha:1.0];
                              }
                          } completion:^(BOOL finished) {
-                             [cell.imageZoomView resetImageViewFrame];
                              [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell];
                          }];
         self.isLoad = YES;

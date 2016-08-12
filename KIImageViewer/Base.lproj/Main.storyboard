@@ -20,7 +20,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="c.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DYj-CZ-Ihx">
                                 <rect key="frame" x="15" y="28" width="100" height="100"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-Lg-uJ8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="d.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-Lg-uJ8">
                                 <rect key="frame" x="144" y="28" width="114" height="67"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NFz-Jl-8Jh">
@@ -74,10 +74,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2.jpg" width="1920" height="1200"/>
         <image name="3.jpg" width="1920" height="1200"/>
         <image name="4.jpg" width="1920" height="1200"/>
         <image name="5.jpg" width="1920" height="1200"/>
         <image name="c.jpg" width="200" height="267"/>
+        <image name="d.jpg" width="75" height="75"/>
     </resources>
 </document>

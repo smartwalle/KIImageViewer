@@ -228,7 +228,7 @@
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                 UIWindow *window = [UIApplication sharedApplication].keyWindow;
                                                 [cell.imageZoomView resetImageViewFrame];
-                                                [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+                                                [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
                                             }];
 }
 

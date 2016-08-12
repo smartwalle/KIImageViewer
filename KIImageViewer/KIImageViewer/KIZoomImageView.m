@@ -214,7 +214,7 @@
 }
 
 - (void)resetImageViewFrame {
-    [self setZoomScale:1.0 animated:NO];
+    [self setZoomScale:1.001 animated:NO];
     CGRect frame = self.imageView.frame;
     frame.size = self.image.size;
     frame.origin = CGPointMake(0, 0);

@@ -38,12 +38,17 @@
 
 
 - (NSURL *)imageViewer:(KIImageViewer *)imageViewer imageURLAtIndex:(NSInteger)index {
-    return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/57a7fb949535670b223a2391/1470981252.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
-//    return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/55ff58304ea04614400036e0/1458021819705.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
+    if (index == 0) {
+        return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/57a7fb949535670b223a2391/1470981252.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
+    }
+    return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/55ff58304ea04614400036e0/1458021819705.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
 }
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index {
+    if (index == 0) {
     return [UIImage imageNamed:@"c.jpg"];
+    }
+    return [UIImage imageNamed:@"d.jpg"];
 }
 
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer {
@@ -52,10 +57,6 @@
 
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index {
     return [self.view viewWithTag:100+index];
-}
-
-- (void)imageViewer:(KIImageViewer *)imageViewer updatePlaceholderImage:(AAA)pBlock updateImage:(AAA)iBlock atIndex:(NSInteger)index {
-    
 }
 
 @end

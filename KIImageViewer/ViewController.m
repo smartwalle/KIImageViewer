@@ -14,15 +14,15 @@
 
 @interface ViewController () <KIImageViewerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *iv;
-//@property (weak, nonatomic) IBOutlet KIImageScrollView *isv;
 
+@property (weak, nonatomic) IBOutlet KIZoomImageView *izv;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.isv setImage:[UIImage imageNamed:@"iOS.png"]];
+    [self.izv setImage:[UIImage imageNamed:@"1.jpg"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,13 +46,13 @@
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index {
     if (index == 0) {
-    return [UIImage imageNamed:@"c.jpg"];
+        return [UIImage imageNamed:@"c.jpg"];
     }
     return [UIImage imageNamed:@"d.jpg"];
 }
 
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer {
-    return 5;
+    return 4;
 }
 
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index {

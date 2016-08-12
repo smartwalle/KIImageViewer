@@ -252,6 +252,7 @@
 
 - (void)setImage:(UIImage *)image {
     [self.imageView setImage:image];
+    [self resetImageViewFrame];
 }
 
 - (UIImage *)image {

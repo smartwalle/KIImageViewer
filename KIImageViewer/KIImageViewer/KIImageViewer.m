@@ -221,14 +221,19 @@
 }
 
 - (void)loadImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cell:(KIImageCollectionViewCell *)cell {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [cell.imageZoomView setImage:placeholderImage];
+    [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+    
     [cell.imageZoomView.imageView sd_setImageWithURL:url
                                     placeholderImage:placeholderImage
                                              options:0
                                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                                UIWindow *window = [UIApplication sharedApplication].keyWindow;
-                                                [cell.imageZoomView resetImageViewFrame];
-                                                [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
+                                                if (image != nil) {
+                                                    [cell.imageZoomView resetImageViewFrame];
+                                                    [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
+                                                }
                                             }];
 }
 

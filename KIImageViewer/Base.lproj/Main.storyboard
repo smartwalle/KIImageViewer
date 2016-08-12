@@ -53,20 +53,16 @@
                                     <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9D-15-JKm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="104" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iun-BB-UKV">
-                                <rect key="frame" x="67" y="305" width="133" height="100"/>
-                                <state key="normal" image="5.jpg"/>
-                            </button>
-                            <button opaque="NO" tag="204" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrS-dt-spq">
-                                <rect key="frame" x="66" y="305" width="134" height="105"/>
-                                <connections>
-                                    <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AsX-Vb-VpX"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ml-AE-FHD" customClass="KIZoomImageView">
+                                <rect key="frame" x="15" y="403" width="240" height="128"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.76078431369999999" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="izv" destination="0Ml-AE-FHD" id="H5M-j1-5UR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,7 +72,6 @@
     <resources>
         <image name="3.jpg" width="1920" height="1200"/>
         <image name="4.jpg" width="1920" height="1200"/>
-        <image name="5.jpg" width="1920" height="1200"/>
         <image name="c.jpg" width="200" height="267"/>
         <image name="d.jpg" width="75" height="75"/>
     </resources>

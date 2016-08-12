@@ -13,7 +13,7 @@ typedef void(^KIZoomImageViewDidClickBlock) (KIZoomImageView *view);
 
 @interface KIZoomImageView : UIScrollView
 
-@property (nonatomic, strong) UIImage           *image;
+@property (nonatomic, strong) UIImage *image;
 
 - (UIImageView *)imageView;
 

@@ -226,9 +226,8 @@
                                              options:0
                                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                                [cell.imageZoomView resetImageViewFrame];
-                                                
                                                 UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                [cell.imageZoomView resetImageViewFrame];
                                                 [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
                                             }];
 }

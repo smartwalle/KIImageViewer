@@ -23,6 +23,7 @@
 
 @optional
 - (void)imageViewer:(KIImageViewer *)imageView didDisplayImageAtIndex:(NSInteger)index;
+
 - (void)imageViewer:(KIImageViewer *)imageViewer didEndDisplayingImageAtIndex:(NSInteger)index;
 
 @end

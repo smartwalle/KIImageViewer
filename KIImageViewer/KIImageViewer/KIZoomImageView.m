@@ -18,8 +18,6 @@
 }
 @end
 
-
-
 @interface KIZoomImageView () <UIScrollViewDelegate>
 @property (nonatomic, strong) _ImageView    *imageView;
 @property (nonatomic, assign) CGPoint       pointToCenterAfterResize;

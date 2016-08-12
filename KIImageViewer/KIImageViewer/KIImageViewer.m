@@ -111,13 +111,7 @@
                              if (!CGRectIsEmpty(frame)) {
                                  [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
                                  
-                                 // 长图
-                                 CGSize imageSize = placeholderImage.size;
-                                 if (imageSize.width * 2 < imageSize.height) {
-                                     [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
-                                     [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
-                                 }
-                                 
+                                 [self processLongImage:placeholderImage cell:cell];
                              } else {
                                  [cell setAlpha:1.0];
                              }
@@ -234,13 +228,9 @@
         [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
     }
     
-    CGSize imageSize = placeholderImage.size;
-    if (imageSize.width * 2 < imageSize.height) {
-        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
-        [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
-    }
+    [self processLongImage:placeholderImage cell:cell];
     
-    
+    __weak KIImageViewer *weakSelf = self;
     [cell.imageZoomView.imageView sd_setImageWithURL:url
                                     placeholderImage:placeholderImage
                                              options:0
@@ -250,13 +240,18 @@
                                                     [cell.imageZoomView resetImageViewFrame];
                                                     [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
                                                     
-                                                    CGSize imageSize = image.size;
-                                                    if (imageSize.width * 2 < imageSize.height) {
-                                                        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
-                                                        [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
-                                                    }
+                                                    [weakSelf processLongImage:image cell:cell];
                                                 }
                                             }];
+}
+
+- (void)processLongImage:(UIImage *)image cell:(KIImageCollectionViewCell *)cell {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CGSize imageSize = image.size;
+    if (imageSize.width * 2 < imageSize.height) {
+        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
+        [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
+    }
 }
 
 #pragma mark - Getters & Setters

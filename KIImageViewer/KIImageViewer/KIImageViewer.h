@@ -11,8 +11,6 @@
 
 @class KIImageViewer;
 
-typedef void(^AAA)(UIImage *image);
-
 @protocol KIImageViewerDelegate <NSObject>
 @required
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer;

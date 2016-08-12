@@ -10,6 +10,8 @@
 #import "UIImage+KIImageViewer.h"
 #import "UIImageView+WebCache.h"
 
+#define kEffectViewTag 9099950
+
 @interface KIImageViewer () <KIImageCollectionViewDelegate>
 @property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
 @property (nonatomic, strong) KIImageCollectionView *collectionView;
@@ -122,6 +124,7 @@
 #pragma mark - Methods
 - (void)updateBackgroundColorWithAlpha:(CGFloat)alpha {
     [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
+    [[self viewWithTag:kEffectViewTag] setAlpha:alpha];
 }
 
 - (void)showBackgroundColor {
@@ -155,6 +158,16 @@
     [self setIsLoad:NO];
     [self setFrame:keyWindow.bounds];
     [keyWindow addSubview:self];
+    
+    CGFloat version = [[UIDevice currentDevice].systemVersion floatValue];
+    if (version > 8.0) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [effectView setTag:kEffectViewTag];
+        effectView.frame = self.bounds;
+        [self addSubview:effectView];
+        [self sendSubviewToBack:effectView];
+    }
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.initialIndex inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionNone
@@ -206,6 +219,10 @@
                                              options:0
                                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                                [cell.imageZoomView resetImageViewFrame];
+                                                
+                                                UIWindow *window = [UIApplication sharedApplication].keyWindow;
+                                                [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
                                             }];
 }
 

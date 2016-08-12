@@ -14,8 +14,6 @@ typedef void(^KIZoomImageViewDidClickBlock) (KIZoomImageView *view);
 @interface KIZoomImageView : UIScrollView
 
 @property (nonatomic, strong) UIImage           *image;
-//@property (nonatomic, assign) UIViewContentMode imageViewContentMode;
-//@property (nonatomic, assign) BOOL              imageViewClipsToBounds;
 
 - (UIImageView *)imageView;
 

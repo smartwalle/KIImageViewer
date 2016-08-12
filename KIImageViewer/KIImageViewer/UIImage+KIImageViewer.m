@@ -31,6 +31,8 @@
 //        nw = iw * scale;
 //    }
     
+    nh = MIN(fh, nh);
+    
     CGRect nf = CGRectMake((frame.size.width - nw) * 0.5, (frame.size.height - nh) * 0.5, nw, nh);
     return nf;
 }

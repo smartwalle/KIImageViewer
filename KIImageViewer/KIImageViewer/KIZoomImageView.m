@@ -9,23 +9,13 @@
 #import "KIZoomImageView.h"
 
 @class _ImageView;
-typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
 @interface _ImageView : UIImageView
-@property (nonatomic, copy) ImageViewDidSetImageBlock imageViewDidSetImage;
 @end
 
 @implementation _ImageView
 - (void)setImage:(UIImage *)image {
     [super setImage:image];
-    if (self.imageViewDidSetImage != nil) {
-        self.imageViewDidSetImage(self, image);
-    }
 }
-
-- (void)setDidSetImageBlock:(ImageViewDidSetImageBlock)block {
-    [self setImageViewDidSetImage:block];
-}
-
 @end
 
 
@@ -231,6 +221,8 @@ typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
     [self.imageView setFrame:frame];
     
     [self configureForImageSize:self.image.size];
+    
+    [self updateImageViewFrame];
 }
 
 - (void)updateImageViewFrame:(CGRect)frame {
@@ -253,10 +245,6 @@ typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
         _imageView = [[_ImageView alloc] init];
         [_imageView setContentMode:UIViewContentModeScaleAspectFit];
         [_imageView setBackgroundColor:[UIColor clearColor]];
-        __weak KIZoomImageView *weakSelf = self;
-        [_imageView setDidSetImageBlock:^(_ImageView *iv, UIImage *image) {
-            [weakSelf resetImageViewFrame];
-        }];
         [self addSubview:_imageView];
     }
     return _imageView;
@@ -269,22 +257,6 @@ typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
 - (UIImage *)image {
     return self.imageView.image;
 }
-
-//- (void)setImageViewContentMode:(UIViewContentMode)imageViewContentMode {
-//    [self.imageView setContentMode:imageViewContentMode];
-//}
-//
-//- (UIViewContentMode)imageViewContentMode {
-//    return self.imageView.contentMode;
-//}
-//
-//- (void)setImageViewClipsToBounds:(BOOL)clipsToBounds {
-//    [self.imageView setClipsToBounds:clipsToBounds];
-//}
-//
-//- (BOOL)imageViewClipsToBounds {
-//    return self.imageView.clipsToBounds;
-//}
 
 - (void)setDidClickBlock:(KIZoomImageViewDidClickBlock)block {
     self.zoomImageViewDidClickBlock = block;

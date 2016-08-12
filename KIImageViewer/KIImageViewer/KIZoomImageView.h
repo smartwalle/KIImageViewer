@@ -17,6 +17,8 @@ typedef void(^KIZoomImageViewDidClickBlock) (KIZoomImageView *view);
 @property (nonatomic, assign) UIViewContentMode imageViewContentMode;
 @property (nonatomic, assign) BOOL              imageViewClipsToBounds;
 
+- (UIImageView *)imageView;
+
 - (void)resetImageViewFrame;
 
 // 调用此方法之后，会改变 UIImageView 的 Frame，如果想要正常进行缩放操作，需要调用一次 resetImageViewFrame 方法。

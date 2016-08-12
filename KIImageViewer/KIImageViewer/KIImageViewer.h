@@ -11,6 +11,6 @@
 
 @interface KIImageViewer : UIView
 
-+ (void)showWithTarget:(UIImageView *)target;
++ (void)showWithTarget:(UIView *)target;
 
 @end

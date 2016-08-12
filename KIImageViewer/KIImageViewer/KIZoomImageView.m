@@ -8,8 +8,30 @@
 
 #import "KIZoomImageView.h"
 
+@class _ImageView;
+typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
+@interface _ImageView : UIImageView
+@property (nonatomic, copy) ImageViewDidSetImageBlock imageViewDidSetImage;
+@end
+
+@implementation _ImageView
+- (void)setImage:(UIImage *)image {
+    [super setImage:image];
+    if (self.imageViewDidSetImage != nil) {
+        self.imageViewDidSetImage(self, image);
+    }
+}
+
+- (void)setDidSetImageBlock:(ImageViewDidSetImageBlock)block {
+    [self setImageViewDidSetImage:block];
+}
+
+@end
+
+
+
 @interface KIZoomImageView () <UIScrollViewDelegate>
-@property (nonatomic, strong) UIImageView   *imageView;
+@property (nonatomic, strong) _ImageView    *imageView;
 @property (nonatomic, assign) CGPoint       pointToCenterAfterResize;
 @property (nonatomic, assign) CGFloat       scaleToRestoreAfterResize;
 
@@ -228,9 +250,13 @@
 
 - (UIImageView *)imageView {
     if (_imageView == nil) {
-        _imageView = [[UIImageView alloc] init];
+        _imageView = [[_ImageView alloc] init];
         [_imageView setContentMode:UIViewContentModeScaleAspectFit];
         [_imageView setBackgroundColor:[UIColor clearColor]];
+        __weak KIZoomImageView *weakSelf = self;
+        [_imageView setDidSetImageBlock:^(_ImageView *iv, UIImage *image) {
+            [weakSelf resetImageViewFrame];
+        }];
         [self addSubview:_imageView];
     }
     return _imageView;
@@ -238,7 +264,6 @@
 
 - (void)setImage:(UIImage *)image {
     [self.imageView setImage:image];
-    [self resetImageViewFrame];
 }
 
 - (UIImage *)image {

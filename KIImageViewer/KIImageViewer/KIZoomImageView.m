@@ -270,21 +270,21 @@ typedef void(^ImageViewDidSetImageBlock) (_ImageView *iv, UIImage *image);
     return self.imageView.image;
 }
 
-- (void)setImageViewContentMode:(UIViewContentMode)imageViewContentMode {
-    [self.imageView setContentMode:imageViewContentMode];
-}
-
-- (UIViewContentMode)imageViewContentMode {
-    return self.imageView.contentMode;
-}
-
-- (void)setImageViewClipsToBounds:(BOOL)clipsToBounds {
-    [self.imageView setClipsToBounds:clipsToBounds];
-}
-
-- (BOOL)imageViewClipsToBounds {
-    return self.imageView.clipsToBounds;
-}
+//- (void)setImageViewContentMode:(UIViewContentMode)imageViewContentMode {
+//    [self.imageView setContentMode:imageViewContentMode];
+//}
+//
+//- (UIViewContentMode)imageViewContentMode {
+//    return self.imageView.contentMode;
+//}
+//
+//- (void)setImageViewClipsToBounds:(BOOL)clipsToBounds {
+//    [self.imageView setClipsToBounds:clipsToBounds];
+//}
+//
+//- (BOOL)imageViewClipsToBounds {
+//    return self.imageView.clipsToBounds;
+//}
 
 - (void)setDidClickBlock:(KIZoomImageViewDidClickBlock)block {
     self.zoomImageViewDidClickBlock = block;

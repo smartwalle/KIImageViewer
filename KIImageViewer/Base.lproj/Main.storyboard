@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,30 +17,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-zT-rKM">
-                                <rect key="frame" x="99" y="508" width="108" height="40"/>
-                                <state key="normal" title="Click"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DYj-CZ-Ihx">
+                                <rect key="frame" x="15" y="28" width="114" height="67"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-Lg-uJ8">
+                                <rect key="frame" x="144" y="28" width="114" height="67"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NFz-Jl-8Jh">
+                                <rect key="frame" x="32" y="131" width="67" height="90"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cYN-uy-5v7">
+                                <rect key="frame" x="164" y="145" width="114" height="67"/>
+                            </imageView>
+                            <button opaque="NO" tag="200" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-zT-rKM">
+                                <rect key="frame" x="15" y="28" width="114" height="67"/>
                                 <connections>
                                     <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A5r-oq-r2F"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DYj-CZ-Ihx">
-                                <rect key="frame" x="79" y="227" width="163" height="82"/>
-                            </imageView>
+                            <button opaque="NO" tag="201" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY8-GS-1Ej">
+                                <rect key="frame" x="144" y="28" width="114" height="67"/>
+                                <connections>
+                                    <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5U-3d-f2m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="202" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgU-pc-aKJ">
+                                <rect key="frame" x="32" y="131" width="67" height="90"/>
+                                <connections>
+                                    <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XCu-u7-EhS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="203" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-gQ-Dvt">
+                                <rect key="frame" x="164" y="145" width="114" height="67"/>
+                                <connections>
+                                    <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H9D-15-JKm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="104" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iun-BB-UKV">
+                                <rect key="frame" x="67" y="305" width="133" height="100"/>
+                                <state key="normal" image="5.jpg"/>
+                            </button>
+                            <button opaque="NO" tag="204" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrS-dt-spq">
+                                <rect key="frame" x="66" y="305" width="134" height="105"/>
+                                <connections>
+                                    <action selector="showImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AsX-Vb-VpX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.76078431369999999" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="iv" destination="DYj-CZ-Ihx" id="aFx-VG-vaC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="335"/>
+            <point key="canvasLocation" x="-204" y="321"/>
         </scene>
     </scenes>
     <resources>
         <image name="1.jpg" width="1920" height="1200"/>
+        <image name="2.jpg" width="1920" height="1200"/>
+        <image name="3.jpg" width="1920" height="1200"/>
+        <image name="4.jpg" width="1920" height="1200"/>
+        <image name="5.jpg" width="1920" height="1200"/>
     </resources>
 </document>

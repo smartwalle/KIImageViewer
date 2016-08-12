@@ -100,13 +100,13 @@
             [cell setAlpha:0.0f];
         }
         
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        CGRect bounds = [self viewBounds];
         [UIView animateWithDuration:0.3
                               delay:0
                             options:0
                          animations:^{
                              if (!CGRectIsEmpty(frame)) {
-                                 [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+                                 [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:bounds]];
                              } else {
                                  [cell setAlpha:1.0];
                              }
@@ -207,10 +207,11 @@
 }
 
 - (void)loadImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cell:(KIImageCollectionViewCell *)cell isInitial:(BOOL)isInitial {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CGRect bounds = [self viewBounds];
+    
     if (!isInitial) {
         [cell.imageZoomView setImage:placeholderImage];
-        [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+        [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:bounds]];
     }
     
     [self processLongImage:placeholderImage cell:cell];
@@ -223,7 +224,7 @@
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                 if (image != nil) {
                                                     [cell.imageZoomView resetImageViewFrame];
-                                                    [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
+                                                    [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:bounds]];
                                                     
                                                     [weakSelf processLongImage:image cell:cell];
                                                 }
@@ -231,10 +232,9 @@
 }
 
 - (void)processLongImage:(UIImage *)image cell:(KIImageCollectionViewCell *)cell {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
     CGSize imageSize = image.size;
     if (imageSize.width * 2 < imageSize.height) {
-        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
+        [cell.imageZoomView setZoomScale:self.viewBounds.size.width/imageSize.width animated:NO];
         [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
     }
 }
@@ -242,6 +242,10 @@
 #pragma mark - Getters & Setters
 - (UIWindow *)keyWindow {
     return [UIApplication sharedApplication].keyWindow;
+}
+
+- (CGRect)viewBounds {
+    return [self keyWindow].bounds;
 }
 
 - (KIImageCollectionView *)collectionView {

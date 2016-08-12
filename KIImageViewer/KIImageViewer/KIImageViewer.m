@@ -110,15 +110,23 @@
                          animations:^{
                              if (!CGRectIsEmpty(frame)) {
                                  [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+                                 
+                                 // 长图
+                                 CGSize imageSize = placeholderImage.size;
+                                 if (imageSize.width * 2 < imageSize.height) {
+                                     [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
+                                     [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
+                                 }
+                                 
                              } else {
                                  [cell setAlpha:1.0];
                              }
                          } completion:^(BOOL finished) {
-                             [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell];
+                             [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell isInitial:YES];
                          }];
         self.isLoad = YES;
     } else {
-        [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell];
+        [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell isInitial:NO];
     }
 }
 
@@ -219,10 +227,19 @@
                      }];
 }
 
-- (void)loadImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cell:(KIImageCollectionViewCell *)cell {
+- (void)loadImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cell:(KIImageCollectionViewCell *)cell isInitial:(BOOL)isInitial {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [cell.imageZoomView setImage:placeholderImage];
-    [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+    if (!isInitial) {
+        [cell.imageZoomView setImage:placeholderImage];
+        [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
+    }
+    
+    CGSize imageSize = placeholderImage.size;
+    if (imageSize.width * 2 < imageSize.height) {
+        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
+        [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
+    }
+    
     
     [cell.imageZoomView.imageView sd_setImageWithURL:url
                                     placeholderImage:placeholderImage
@@ -232,6 +249,12 @@
                                                 if (image != nil) {
                                                     [cell.imageZoomView resetImageViewFrame];
                                                     [cell.imageZoomView updateImageViewFrame:[image centerFrameToFrame:window.bounds]];
+                                                    
+                                                    CGSize imageSize = image.size;
+                                                    if (imageSize.width * 2 < imageSize.height) {
+                                                        [cell.imageZoomView setZoomScale:window.bounds.size.width/imageSize.width animated:NO];
+                                                        [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
+                                                    }
                                                 }
                                             }];
 }

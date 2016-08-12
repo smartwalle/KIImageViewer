@@ -46,7 +46,7 @@
     if (index == 0) {
         return [UIImage imageNamed:@"c.jpg"];
     }
-    return [UIImage imageNamed:@"d.jpg"];
+    return [UIImage imageNamed:@"a.png"];
 }
 
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer {

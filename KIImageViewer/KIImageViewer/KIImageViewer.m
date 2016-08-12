@@ -110,11 +110,10 @@
                          animations:^{
                              if (!CGRectIsEmpty(frame)) {
                                  [cell.imageZoomView updateImageViewFrame:[placeholderImage centerFrameToFrame:window.bounds]];
-                                 
-                                 [self processLongImage:placeholderImage cell:cell];
                              } else {
                                  [cell setAlpha:1.0];
                              }
+                             [self processLongImage:placeholderImage cell:cell];
                          } completion:^(BOOL finished) {
                              [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell isInitial:YES];
                          }];

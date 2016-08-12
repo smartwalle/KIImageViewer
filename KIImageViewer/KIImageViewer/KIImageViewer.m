@@ -10,7 +10,7 @@
 #import "UIImage+KIImageViewer.h"
 #import "UIImageView+WebCache.h"
 
-#define kEffectViewTag 9099950
+#define kEffectViewTag 9090950
 
 @interface KIImageViewer () <KIImageCollectionViewDelegate>
 @property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) NSInteger initialIndex;
 @property (nonatomic, assign) BOOL      isLoad;
+@property (nonatomic, assign) BOOL      statusBarHidden;
 @end
 
 @implementation KIImageViewer
@@ -63,6 +64,7 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     [self.collectionView setFrame:self.bounds];
+    [[self viewWithTag:kEffectViewTag] setFrame:self.bounds];
 }
 
 #pragma mark - KIImageCollectionViewDelegate
@@ -154,6 +156,9 @@
 }
 
 - (void)show {
+    self.statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [self setIsLoad:NO];
     [self setFrame:keyWindow.bounds];
@@ -184,6 +189,8 @@
 }
 
 - (void)dismiss {
+    [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationFade];
+    
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[self.collectionView.visibleCells firstObject];
     CGRect frame = CGRectZero;
     

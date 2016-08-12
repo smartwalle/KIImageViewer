@@ -11,7 +11,6 @@
 #import "KIImageViewer.h"
 #import "UIImage+KIImageViewer.h"
 
-
 @interface ViewController () <KIImageViewerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *iv;
 
@@ -30,7 +29,6 @@
 }
 
 - (IBAction)showImageAction:(UIButton *)sender {
-    
     NSInteger tag = sender.tag - 200;
     
     [KIImageViewer showWithDataSource:self initialIndex:tag];

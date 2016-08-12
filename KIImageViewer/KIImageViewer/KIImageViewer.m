@@ -10,8 +10,6 @@
 #import "UIImage+KIImageViewer.h"
 #import "UIImageView+WebCache.h"
 
-#define kEffectViewTag 9090950
-
 @interface KIImageViewer () <KIImageCollectionViewDelegate>
 @property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
 @property (nonatomic, strong) KIImageCollectionView *collectionView;
@@ -64,7 +62,6 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     [self.collectionView setFrame:self.bounds];
-    [[self viewWithTag:kEffectViewTag] setFrame:self.bounds];
 }
 
 #pragma mark - KIImageCollectionViewDelegate
@@ -126,11 +123,10 @@
 #pragma mark - Methods
 - (void)updateBackgroundColorWithAlpha:(CGFloat)alpha {
     [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
-    [[self viewWithTag:kEffectViewTag] setAlpha:alpha];
 }
 
 - (void)showBackgroundColor {
-    [self updateBackgroundColorWithAlpha:0.8f];
+    [self updateBackgroundColorWithAlpha:0.9f];
 }
 
 - (void)hideBackgroundColor {
@@ -163,16 +159,6 @@
     [self setIsLoad:NO];
     [self setFrame:keyWindow.bounds];
     [keyWindow addSubview:self];
-    
-    CGFloat version = [[UIDevice currentDevice].systemVersion floatValue];
-    if (version > 8.0) {
-        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        [effectView setTag:kEffectViewTag];
-        effectView.frame = self.bounds;
-        [self addSubview:effectView];
-        [self sendSubviewToBack:effectView];
-    }
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.initialIndex inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionNone

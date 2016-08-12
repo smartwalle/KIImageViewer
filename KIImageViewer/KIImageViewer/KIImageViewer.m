@@ -118,6 +118,16 @@
     } else {
         [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell isInitial:NO];
     }
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didDisplayImageAtIndex:)]) {
+        [self.delegate imageViewer:self didDisplayImageAtIndex:indexPath.row];
+    }
+}
+
+- (void)collectionView:(KIImageCollectionView *)collectionView didEndDisplayingCell:(KIImageCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didEndDisplayingImageAtIndex:)]) {
+        [self.delegate imageViewer:self didEndDisplayingImageAtIndex:indexPath.row];
+    }
 }
 
 #pragma mark - Methods
@@ -178,13 +188,14 @@
     [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationFade];
     
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[self.collectionView.visibleCells firstObject];
+    NSIndexPath *indexPath = nil;
     CGRect frame = CGRectZero;
     
     if (cell != nil) {
         [cell.imageZoomView.imageView sd_cancelCurrentImageLoad];
         [cell.imageZoomView.imageView sd_cancelCurrentAnimationImagesLoad];
         
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        indexPath = [self.collectionView indexPathForCell:cell];
         frame = [self viewFrameAtIndex:indexPath.row];
     }
     
@@ -203,6 +214,9 @@
                          
                      } completion:^(BOOL finished) {
                          [self removeFromSuperview];
+                         if (indexPath != nil) {
+                             [self collectionView:self.collectionView didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
+                         }
                      }];
 }
 

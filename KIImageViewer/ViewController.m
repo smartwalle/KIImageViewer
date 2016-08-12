@@ -57,4 +57,12 @@
     return [self.view viewWithTag:100+index];
 }
 
+- (void)imageViewer:(KIImageViewer *)imageView didDisplayImageAtIndex:(NSInteger)index {
+     [[self.view viewWithTag:100+index] setAlpha:0.0];
+}
+
+- (void)imageViewer:(KIImageViewer *)imageViewer didEndDisplayingImageAtIndex:(NSInteger)index {
+     [[self.view viewWithTag:100+index] setAlpha:1.0];
+}
+
 @end

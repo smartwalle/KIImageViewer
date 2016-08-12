@@ -21,6 +21,10 @@
 
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index;
 
+@optional
+- (void)imageViewer:(KIImageViewer *)imageView didDisplayImageAtIndex:(NSInteger)index;
+- (void)imageViewer:(KIImageViewer *)imageViewer didEndDisplayingImageAtIndex:(NSInteger)index;
+
 @end
 
 @interface KIImageViewer : UIView

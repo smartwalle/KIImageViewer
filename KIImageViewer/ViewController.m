@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setClipsToBounds:YES];
 
     [self.iv setupImageViewerWithDelegate:self initialIndex:0];
     [self.iv2 setupImageViewerWithDelegate:self initialIndex:1];

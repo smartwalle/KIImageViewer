@@ -21,6 +21,7 @@
 
 @interface KIImageCollectionView : UICollectionView
 @property (nonatomic, weak) id<KIImageCollectionViewDelegate> imageDelegate;
+@property (nonatomic, assign) BOOL      updateFrame;
 @end
 
 @interface KIImageCollectionViewCell : UICollectionViewCell

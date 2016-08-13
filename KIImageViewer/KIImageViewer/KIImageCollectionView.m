@@ -46,17 +46,41 @@
 - (void)setFrame:(CGRect)frame {
     BOOL sizeChanging = !CGSizeEqualToSize(frame.size, self.frame.size);
     
-    NSArray *visibleIndexPaths = [self indexPathsForVisibleItems];
-    NSIndexPath *indexPath = [visibleIndexPaths firstObject];
+    CGFloat dx = self.contentOffset.x / CGRectGetWidth(self.frame);
+    NSIndexPath *indexPath = nil;
+    if (!isnan(dx)) {
+         indexPath = [NSIndexPath indexPathForRow:(int)dx inSection:0];
+    }
     
+    [self setUpdateFrame:YES];
     [super setFrame:frame];
-    
     if (sizeChanging) {
         [self reloadData];
         if (indexPath != nil) {
-            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }
     }
+    [self setUpdateFrame:NO];
+    
+    
+//    if (sizeChanging) {
+//        [UIView animateWithDuration:0.0
+//                         animations:^{
+//                             [self performBatchUpdates:^{
+//                                 [self reloadData];
+//                             } completion:^(BOOL finished) {
+//                                 [self setUpdateFrame:NO];
+//                             }];
+//                         } completion:^(BOOL finished) {
+//                             
+//                         }];
+//        
+//        if (indexPath != nil) {
+//            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+//        }
+//    } else {
+//        [self setUpdateFrame:NO];
+//    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,7 +111,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"KIImageCollectionViewCell" forIndexPath:indexPath];
     KIZoomImageView *zv = cell.imageZoomView;
-    
     __weak KIImageCollectionViewCell *weakCell = cell;
     __weak KIImageCollectionView *weakSelf = self;
     [zv setDidClickBlock:^(KIZoomImageView *view) {

@@ -13,7 +13,7 @@
 
 - (void)setupImageViewerWithURL:(NSURL *)url placeholderImage:(UIImage *)image;
 
-- (void)setupImageViewerWithDataSource:(id<KIImageViewerDelegate>)dataSource initialIndex:(NSInteger)index;
+- (void)setupImageViewerWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index;
 
 - (void)removeImageViewer;
 

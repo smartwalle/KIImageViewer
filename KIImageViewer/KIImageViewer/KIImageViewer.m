@@ -11,32 +11,30 @@
 #import "UIImageView+WebCache.h"
 
 @interface KIImageViewer () <KIImageCollectionViewDelegate>
-@property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
 @property (nonatomic, strong) KIImageCollectionView *collectionView;
 
-@property (nonatomic, assign) NSInteger initialIndex;
 @property (nonatomic, assign) BOOL      isLoad;
 @property (nonatomic, assign) BOOL      statusBarHidden;
 @end
 
 @implementation KIImageViewer
 
-+ (void)showWithDataSource:(id<KIImageViewerDelegate>)dataSource initialIndex:(NSInteger)index {
-    if (dataSource == nil) {
++ (void)showWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index {
+    if (delegate == nil) {
         return ;
     }
     
     KIImageViewer *imageViewer = [[KIImageViewer alloc] init];
     NSInteger total = 0;
-    if ([dataSource respondsToSelector:@selector(numberOfImages:)]) {
-        total = [dataSource numberOfImages:imageViewer];
+    if ([delegate respondsToSelector:@selector(numberOfImages:)]) {
+        total = [delegate numberOfImages:imageViewer];
     }
     
     if (index < 0 || index >= total) {
         index = 0;
     }
     
-    [imageViewer setDelegate:dataSource];
+    [imageViewer setDelegate:delegate];
     [imageViewer setInitialIndex:index];
     [imageViewer show];
 }

@@ -59,21 +59,21 @@
     [self addGestureRecognizer:tapGesture];
 }
 
-- (void)setupImageViewerWithDataSource:(id<KIImageViewerDelegate>)dataSource initialIndex:(NSInteger)index {
+- (void)setupImageViewerWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index {
     [self setUserInteractionEnabled:YES];
     
     KI__ImageViewTapGestureRecognizer *tapGesture = [[KI__ImageViewTapGestureRecognizer alloc] initWithTarget:self
                                                                                                        action:@selector(ki__tapGestureAction:)];
-    tapGesture.dataSource = dataSource;
+    tapGesture.dataSource = delegate;
     tapGesture.initialIndex = index;
     [self addGestureRecognizer:tapGesture];
 }
 
 - (void)ki__tapGestureAction:(KI__ImageViewTapGestureRecognizer *)sender {
     if (sender.dataSource != nil) {
-        [KIImageViewer showWithDataSource:sender.dataSource initialIndex:sender.initialIndex];
+        [KIImageViewer showWithDelegate:sender.dataSource initialIndex:sender.initialIndex];
     } else {
-        [KIImageViewer showWithDataSource:sender initialIndex:0];
+        [KIImageViewer showWithDelegate:sender initialIndex:0];
     }
 }
 

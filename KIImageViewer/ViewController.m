@@ -26,12 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.iv setupImageViewerWithDataSource:self initialIndex:0];
-    [self.iv2 setupImageViewerWithDataSource:self initialIndex:1];
-    [self.iv3 setupImageViewerWithDataSource:self initialIndex:2];
-    [self.iv4 setupImageViewerWithDataSource:self initialIndex:3];
-    [self.iv5 setupImageViewerWithDataSource:self initialIndex:4];
-    [self.iv6 setupImageViewerWithDataSource:self initialIndex:5];
+    [self.iv setupImageViewerWithDelegate:self initialIndex:0];
+    [self.iv2 setupImageViewerWithDelegate:self initialIndex:1];
+    [self.iv3 setupImageViewerWithDelegate:self initialIndex:2];
+    [self.iv4 setupImageViewerWithDelegate:self initialIndex:3];
+    [self.iv5 setupImageViewerWithDelegate:self initialIndex:4];
+    [self.iv6 setupImageViewerWithDelegate:self initialIndex:5];
 }
 
 

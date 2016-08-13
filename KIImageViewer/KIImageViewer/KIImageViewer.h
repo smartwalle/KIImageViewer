@@ -19,9 +19,9 @@
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index;
 
+@optional
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index;
 
-@optional
 - (void)imageViewer:(KIImageViewer *)imageView didDisplayImageAtIndex:(NSInteger)index;
 
 - (void)imageViewer:(KIImageViewer *)imageViewer didEndDisplayingImageAtIndex:(NSInteger)index;
@@ -30,6 +30,12 @@
 
 @interface KIImageViewer : UIView
 
-+ (void)showWithDataSource:(id<KIImageViewerDelegate>)dataSource initialIndex:(NSInteger)index;
+@property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
+@property (nonatomic, assign) NSInteger               initialIndex;
+
++ (void)showWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index;
+
+- (void)show;
+- (void)dismiss;
 
 @end

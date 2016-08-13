@@ -46,28 +46,35 @@
 #endif
 }
 
-- (id)init {
-    if (self = [super init]) {
-        [self _initFinished];
-    }
-    return self;
+- (void)loadView {
+    [super loadView];
+    [self.view addSubview:self.collectionView];
 }
 
-- (void)_initFinished {
-    [self addSubview:self.collectionView];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    [self.collectionView setFrame:self.bounds];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"frame"] && object == [self mainView]) {
-        NSValue *value = [change objectForKey:@"new"];
-        CGRect newFrame = [value CGRectValue];
-        [self setFrame:newFrame];
-    }
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self setFrame:CGRectMake(0, 0, size.width, size.height)];
 }
 
 #pragma mark - KIImageCollectionViewDelegate
@@ -106,7 +113,7 @@
             [cell setAlpha:0.0f];
         }
         
-        CGRect bounds = [self viewBounds];
+        CGRect bounds = [self mainViewBounds];
         [UIView animateWithDuration:0.3
                               delay:0
                             options:0
@@ -137,8 +144,12 @@
 }
 
 #pragma mark - Methods
+- (void)setFrame:(CGRect)frame {
+    [self.collectionView setFrame:frame];
+}
+
 - (void)updateBackgroundColorWithAlpha:(CGFloat)alpha {
-    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
 }
 
 - (void)showBackgroundColor {
@@ -168,15 +179,22 @@
 }
 
 - (void)show {
-    [[self mainView] addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-    
+    UIViewController *rootController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [self showWithController:rootController];
+}
+
+- (void)showWithController:(UIViewController *)controller {
     self.statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     UIView *mainView = [self mainView];
     [self setIsLoad:NO];
     [self setFrame:mainView.bounds];
-    [mainView addSubview:self];
+    [mainView addSubview:self.view];
+    
+    [self willMoveToParentViewController:controller];
+    [controller addChildViewController:self];
+    [self didMoveToParentViewController:controller];
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.initialIndex inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionNone
@@ -193,8 +211,6 @@
 }
 
 - (void)dismiss {
-    [[self mainView] removeObserver:self forKeyPath:@"frame" context:nil];
-    
     [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationFade];
     
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[self.collectionView.visibleCells firstObject];
@@ -223,15 +239,17 @@
                          }
                          
                      } completion:^(BOOL finished) {
-                         [self removeFromSuperview];
                          if (indexPath != nil) {
                              [self collectionView:self.collectionView didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
                          }
+                         
+                         [self.view removeFromSuperview];
+                         [self removeFromParentViewController];
                      }];
 }
 
 - (void)loadImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cell:(KIImageCollectionViewCell *)cell isInitial:(BOOL)isInitial {
-    CGRect bounds = [self viewBounds];
+    CGRect bounds = [self mainViewBounds];
     
     if (!isInitial) {
         [cell.imageZoomView setImage:placeholderImage];
@@ -258,7 +276,7 @@
 - (void)processLongImage:(UIImage *)image cell:(KIImageCollectionViewCell *)cell {
     CGSize imageSize = image.size;
     if (imageSize.width * 2 < imageSize.height) {
-        [cell.imageZoomView setZoomScale:(self.viewBounds.size.width/imageSize.width)+0.0009 animated:NO];
+        [cell.imageZoomView setZoomScale:(self.mainViewBounds.size.width/imageSize.width)+0.0009 animated:NO];
         [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
     }
 }
@@ -268,7 +286,7 @@
     return [UIApplication sharedApplication].keyWindow;
 }
 
-- (CGRect)viewBounds {
+- (CGRect)mainViewBounds {
     return [self mainView].bounds;
 }
 

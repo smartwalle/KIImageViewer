@@ -20,10 +20,14 @@
 #endif
 }
 
-- (id)init {
+- (instancetype)init {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    if (self = [super initWithFrame:CGRectZero collectionViewLayout:layout]) {
+    return [self initWithFrame:CGRectZero collectionViewLayout:layout];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
+    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         [self _initFinished];
     }
     return self;
@@ -49,7 +53,6 @@
     
     if (sizeChanging) {
         [self reloadData];
-        
         if (indexPath != nil) {
             [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
         }

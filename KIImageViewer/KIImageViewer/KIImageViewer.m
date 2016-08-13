@@ -62,6 +62,14 @@
     [self.collectionView setFrame:self.bounds];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"frame"] && object == [self mainView]) {
+        NSValue *value = [change objectForKey:@"new"];
+        CGRect newFrame = [value CGRectValue];
+        [self setFrame:newFrame];
+    }
+}
+
 #pragma mark - KIImageCollectionViewDelegate
 - (NSInteger)numberOfImages:(KIImageCollectionView *)collectionView {
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(numberOfImages:)]) {
@@ -150,23 +158,25 @@
 }
 
 - (CGRect)viewFrameAtIndex:(NSInteger)index {
-    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIView *mainView = [self mainView];
     UIView *targetView = [self targetViewAtIndex:index];
     if (targetView == nil) {
         return CGRectZero;
     }
-    CGRect frame = [targetView.superview convertRect:targetView.frame toView:keyWindow];
+    CGRect frame = [targetView.superview convertRect:targetView.frame toView:mainView];
     return frame;
 }
 
 - (void)show {
+    [[self mainView] addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
+    
     self.statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIView *mainView = [self mainView];
     [self setIsLoad:NO];
-    [self setFrame:keyWindow.bounds];
-    [keyWindow addSubview:self];
+    [self setFrame:mainView.bounds];
+    [mainView addSubview:self];
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.initialIndex inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionNone
@@ -183,6 +193,8 @@
 }
 
 - (void)dismiss {
+    [[self mainView] removeObserver:self forKeyPath:@"frame" context:nil];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationFade];
     
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[self.collectionView.visibleCells firstObject];
@@ -252,12 +264,12 @@
 }
 
 #pragma mark - Getters & Setters
-- (UIWindow *)keyWindow {
+- (UIView *)mainView {
     return [UIApplication sharedApplication].keyWindow;
 }
 
 - (CGRect)viewBounds {
-    return [self keyWindow].bounds;
+    return [self mainView].bounds;
 }
 
 - (KIImageCollectionView *)collectionView {

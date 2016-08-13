@@ -40,9 +40,20 @@
 }
 
 - (void)setFrame:(CGRect)frame {
+    BOOL sizeChanging = !CGSizeEqualToSize(frame.size, self.frame.size);
+    
+    NSArray *visibleIndexPaths = [self indexPathsForVisibleItems];
+    NSIndexPath *indexPath = [visibleIndexPaths firstObject];
+    
     [super setFrame:frame];
     
-    [self reloadData];
+    if (sizeChanging) {
+        [self reloadData];
+        
+        if (indexPath != nil) {
+            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+        }
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

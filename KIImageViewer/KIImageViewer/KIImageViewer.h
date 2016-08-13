@@ -36,6 +36,7 @@
 + (void)showWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index;
 
 - (void)show;
+
 - (void)dismiss;
 
 @end

@@ -10,47 +10,41 @@
 #import "KIZoomImageView.h"
 #import "KIImageViewer.h"
 #import "UIImage+KIImageViewer.h"
+#import "UIImageView+KIImageViewer.h"
 
 @interface ViewController () <KIImageViewerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *iv;
-
-@property (weak, nonatomic) IBOutlet KIZoomImageView *izv;
+@property (weak, nonatomic) IBOutlet UIImageView *iv2;
+@property (weak, nonatomic) IBOutlet UIImageView *iv3;
+@property (weak, nonatomic) IBOutlet UIImageView *iv4;
+@property (weak, nonatomic) IBOutlet UIImageView *iv5;
+@property (weak, nonatomic) IBOutlet UIImageView *iv6;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.izv setImage:[UIImage imageNamed:@"1.jpg"]];
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (IBAction)showImageAction:(UIButton *)sender {
-    NSInteger tag = sender.tag - 200;
-    
-    [KIImageViewer showWithDataSource:self initialIndex:tag];
+    [self.iv setupImageViewerWithDataSource:self initialIndex:0];
+    [self.iv2 setupImageViewerWithDataSource:self initialIndex:1];
+    [self.iv3 setupImageViewerWithDataSource:self initialIndex:2];
+    [self.iv4 setupImageViewerWithDataSource:self initialIndex:3];
+    [self.iv5 setupImageViewerWithDataSource:self initialIndex:4];
+    [self.iv6 setupImageViewerWithDataSource:self initialIndex:5];
 }
 
 
 - (NSURL *)imageViewer:(KIImageViewer *)imageViewer imageURLAtIndex:(NSInteger)index {
-    if (index == 0) {
-        return [NSURL URLWithString:@"http://7xk4hl.com2.z0.glb.qiniucdn.com/images/status/57a7fb949535670b223a2391/1470981252.jpg?imageMogr2/auto-orient/thumbnail/!50p"];
-    }
-    return [NSURL URLWithString:@"http://7xjcby.com1.z0.glb.clouddn.com/file/146492239680777v8el9pkht.png?imageMogr2/auto-orient/thumbnail/!50p"];
+    return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%d.jpg", index+1]];
 }
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index {
-    if (index == 0) {
-        return [UIImage imageNamed:@"c.jpg"];
-    }
-    return [UIImage imageNamed:@"a.png"];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg", index+1]];
 }
 
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer {
-    return 4;
+    return 6;
 }
 
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index {

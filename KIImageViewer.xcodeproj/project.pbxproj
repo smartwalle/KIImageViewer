@@ -37,6 +37,7 @@
 		188B5D1A1D5D9D5A0050FD9B /* c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D191D5D9D5A0050FD9B /* c.jpg */; };
 		188B5D1D1D5DA45A0050FD9B /* d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D1C1D5DA45A0050FD9B /* d.jpg */; };
 		D5025EF11D5DFB1A00F5FF26 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = D5025EF01D5DFB1A00F5FF26 /* a.png */; };
+		D51971C21D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */; };
 		D59609751D5CBF1500B02310 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609701D5CBF1500B02310 /* 1.jpg */; };
 		D59609761D5CBF1500B02310 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609711D5CBF1500B02310 /* 2.jpg */; };
 		D59609771D5CBF1500B02310 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609721D5CBF1500B02310 /* 3.jpg */; };
@@ -98,6 +99,8 @@
 		188B5D191D5D9D5A0050FD9B /* c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c.jpg; sourceTree = "<group>"; };
 		188B5D1C1D5DA45A0050FD9B /* d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpg; sourceTree = "<group>"; };
 		D5025EF01D5DFB1A00F5FF26 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
+		D51971C01D5ECD3A0009C1FF /* UIImageView+KIImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+KIImageViewer.h"; sourceTree = "<group>"; };
+		D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+KIImageViewer.m"; sourceTree = "<group>"; };
 		D59609701D5CBF1500B02310 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		D59609711D5CBF1500B02310 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		D59609721D5CBF1500B02310 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				187DAC8E1D5C144700B8F2D0 /* KIZoomImageView.m */,
 				187DACDB1D5C64D700B8F2D0 /* UIImage+KIImageViewer.h */,
 				187DACDC1D5C64D700B8F2D0 /* UIImage+KIImageViewer.m */,
+				D51971C01D5ECD3A0009C1FF /* UIImageView+KIImageViewer.h */,
+				D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */,
 			);
 			path = KIImageViewer;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				187DAC761D5C132E00B8F2D0 /* AppDelegate.m in Sources */,
 				188B5D151D5D7A730050FD9B /* UIImageView+WebCache.m in Sources */,
 				188B5D091D5D7A730050FD9B /* NSData+ImageContentType.m in Sources */,
+				D51971C21D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m in Sources */,
 				188B5D0D1D5D7A730050FD9B /* SDWebImageDownloader.m in Sources */,
 				187DAC731D5C132E00B8F2D0 /* main.m in Sources */,
 				187DAC8F1D5C144700B8F2D0 /* KIZoomImageView.m in Sources */,

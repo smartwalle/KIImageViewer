@@ -83,6 +83,8 @@
     if (sizeChanging) {
         [self recoverFromResizing];
     }
+    
+    [self resetImageViewFrame];
 }
 
 #pragma mark - UIScrollViewDelegate

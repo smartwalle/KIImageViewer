@@ -39,6 +39,12 @@
     [self setShowsHorizontalScrollIndicator:NO];
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    [self reloadData];
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.frame.size;
 }
@@ -100,6 +106,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self addSubview:self.imageZoomView];
+    [self.imageZoomView setFrame:self.bounds];
 }
 
 - (KIZoomImageView *)imageZoomView {

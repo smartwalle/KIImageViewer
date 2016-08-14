@@ -15,9 +15,6 @@
 @implementation KIImageCollectionView
 
 - (void)dealloc {
-#if DEBUG
-    NSLog(@"Release KIImageCollectionView");
-#endif
 }
 
 - (instancetype)init {
@@ -28,12 +25,12 @@
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
-        [self _initFinished];
+        [self ki__initFinished];
     }
     return self;
 }
 
-- (void)_initFinished {
+- (void)ki__initFinished {
     [self registerClass:[KIImageCollectionViewCell class] forCellWithReuseIdentifier:@"KIImageCollectionViewCell"];
     
     [self setPagingEnabled:YES];
@@ -61,26 +58,6 @@
         }
     }
     [self setIsUpdatingFrame:NO];
-    
-    
-//    if (sizeChanging) {
-//        [UIView animateWithDuration:0.0
-//                         animations:^{
-//                             [self performBatchUpdates:^{
-//                                 [self reloadData];
-//                             } completion:^(BOOL finished) {
-//                                 [self setUpdateFrame:NO];
-//                             }];
-//                         } completion:^(BOOL finished) {
-//                             
-//                         }];
-//        
-//        if (indexPath != nil) {
-//            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-//        }
-//    } else {
-//        [self setUpdateFrame:NO];
-//    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,9 +107,6 @@
 @implementation KIImageCollectionViewCell
 
 - (void)dealloc {
-#if DEBUG
-    NSLog(@"Release KIImageCollectionViewCell");
-#endif
 }
 
 - (void)setFrame:(CGRect)frame {

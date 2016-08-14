@@ -8,20 +8,20 @@
 
 #import "KIZoomImageView.h"
 
-@class _ImageView;
-@interface _ImageView : UIImageView
+@class KI__ImageView;
+@interface KI__ImageView : UIImageView
 @end
 
-@implementation _ImageView
+@implementation KI__ImageView
 - (void)setImage:(UIImage *)image {
     [super setImage:image];
 }
 @end
 
 @interface KIZoomImageView () <UIScrollViewDelegate>
-@property (nonatomic, strong) _ImageView    *imageView;
-@property (nonatomic, assign) CGPoint       pointToCenterAfterResize;
-@property (nonatomic, assign) CGFloat       scaleToRestoreAfterResize;
+@property (nonatomic, strong) KI__ImageView    *imageView;
+@property (nonatomic, assign) CGPoint          pointToCenterAfterResize;
+@property (nonatomic, assign) CGFloat          scaleToRestoreAfterResize;
 
 @property (nonatomic, strong) UITapGestureRecognizer *zoomTapGesture;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
@@ -33,24 +33,21 @@
 
 #pragma mark - Lifecycle
 - (void)dealloc {
-#if DEBUG
-    NSLog(@"Release KIZoomImageView");
-#endif
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        [self _initFinished];
+        [self ki__initFinished];
     }
     return self;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self _initFinished];
+    [self ki__initFinished];
 }
 
-- (void)_initFinished {
+- (void)ki__initFinished {
     [self setShowsHorizontalScrollIndicator:NO];
     [self setShowsVerticalScrollIndicator:NO];
     [self setBouncesZoom:YES];
@@ -242,7 +239,7 @@
 
 - (UIImageView *)imageView {
     if (_imageView == nil) {
-        _imageView = [[_ImageView alloc] init];
+        _imageView = [[KI__ImageView alloc] init];
         [_imageView setContentMode:UIViewContentModeScaleAspectFit];
         [_imageView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_imageView];

@@ -28,7 +28,7 @@
 
 @end
 
-@interface KIImageViewer : UIViewController
+@interface KIImageViewer : UIView
 
 @property (nonatomic, weak) id<KIImageViewerDelegate> delegate;
 @property (nonatomic, assign) NSInteger               initialIndex;
@@ -36,8 +36,6 @@
 + (void)showWithDelegate:(id<KIImageViewerDelegate>)delegate initialIndex:(NSInteger)index;
 
 - (void)show;
-
-- (void)showWithController:(UIViewController *)controller;
 
 - (void)dismiss;
 

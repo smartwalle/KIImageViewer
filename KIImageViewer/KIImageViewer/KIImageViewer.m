@@ -41,40 +41,22 @@
 
 #pragma mark - Lifecycle
 - (void)dealloc {
-#if DEBUG
-    NSLog(@"Release KIImageViewer");
-#endif
 }
 
-- (void)loadView {
-    [super loadView];
-    [self.view addSubview:self.collectionView];
+- (instancetype)init {
+    if (self = [super init]) {
+        [self ki__initFinished];
+    }
+    return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setNeedsStatusBarAppearanceUpdate];
+- (void)ki__initFinished {
+    [self addSubview:self.collectionView];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return YES;
-}
-
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [self setFrame:CGRectMake(0, 0, size.width, size.height)];
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    [self.collectionView setFrame:frame];
 }
 
 #pragma mark - KIImageCollectionViewDelegate
@@ -144,16 +126,12 @@
 }
 
 #pragma mark - Methods
-- (void)setFrame:(CGRect)frame {
-    [self.collectionView setFrame:frame];
-}
-
 - (void)updateBackgroundColorWithAlpha:(CGFloat)alpha {
-    [self.view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
+    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:alpha]];
 }
 
 - (void)showBackgroundColor {
-    [self updateBackgroundColorWithAlpha:0.9f];
+    [self updateBackgroundColorWithAlpha:1.0f];
 }
 
 - (void)hideBackgroundColor {
@@ -179,22 +157,13 @@
 }
 
 - (void)show {
-    UIViewController *rootController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    [self showWithController:rootController];
-}
-
-- (void)showWithController:(UIViewController *)controller {
     self.statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
     
     UIView *mainView = [self mainView];
     [self setIsLoad:NO];
     [self setFrame:mainView.bounds];
-    [mainView addSubview:self.view];
-    
-    [self willMoveToParentViewController:controller];
-    [controller addChildViewController:self];
-    [self didMoveToParentViewController:controller];
+    [mainView addSubview:self];
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.initialIndex inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionNone
@@ -207,11 +176,12 @@
                      animations:^{
                          [self showBackgroundColor];
                      } completion:^(BOOL finished) {
+                        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
                      }];
 }
 
 - (void)dismiss {
-    [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationFade];
+    [[UIApplication sharedApplication] setStatusBarHidden:self.statusBarHidden withAnimation:UIStatusBarAnimationNone];
     
     KIImageCollectionViewCell *cell = (KIImageCollectionViewCell *)[self.collectionView.visibleCells firstObject];
     NSIndexPath *indexPath = nil;
@@ -224,7 +194,7 @@
         indexPath = [self.collectionView indexPathForCell:cell];
         frame = [self viewFrameAtIndex:indexPath.row];
     }
-    
+
     [UIView animateWithDuration:0.3f
                           delay:0
                         options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionLayoutSubviews
@@ -237,14 +207,13 @@
                          } else {
                              [cell setAlpha:0.0];
                          }
-                         
+                        
                      } completion:^(BOOL finished) {
                          if (indexPath != nil) {
                              [self collectionView:self.collectionView didEndDisplayingCell:cell forItemAtIndexPath:indexPath];
                          }
                          
-                         [self.view removeFromSuperview];
-                         [self removeFromParentViewController];
+                         [self removeFromSuperview];
                      }];
 }
 

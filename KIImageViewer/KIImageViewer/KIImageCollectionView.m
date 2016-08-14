@@ -52,7 +52,7 @@
          indexPath = [NSIndexPath indexPathForRow:(int)dx inSection:0];
     }
     
-    [self setUpdateFrame:YES];
+    [self setIsUpdatingFrame:YES];
     [super setFrame:frame];
     if (sizeChanging) {
         [self reloadData];
@@ -60,7 +60,7 @@
             [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }
     }
-    [self setUpdateFrame:NO];
+    [self setIsUpdatingFrame:NO];
     
     
 //    if (sizeChanging) {

@@ -132,13 +132,13 @@
         [self loadImageWithURL:imageURL placeholderImage:placeholderImage cell:cell isInitial:NO];
     }
     
-    if (!self.collectionView.updateFrame && self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didDisplayImageAtIndex:)]) {
+    if (!self.collectionView.isUpdatingFrame && self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didDisplayImageAtIndex:)]) {
         [self.delegate imageViewer:self didDisplayImageAtIndex:indexPath.row];
     }
 }
 
 - (void)collectionView:(KIImageCollectionView *)collectionView didEndDisplayingCell:(KIImageCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (!self.collectionView.updateFrame && self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didEndDisplayingImageAtIndex:)]) {
+    if (!self.collectionView.isUpdatingFrame && self.delegate != nil && [self.delegate respondsToSelector:@selector(imageViewer:didEndDisplayingImageAtIndex:)]) {
         [self.delegate imageViewer:self didEndDisplayingImageAtIndex:indexPath.row];
     }
 }

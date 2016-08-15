@@ -117,7 +117,6 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self addSubview:self.imageZoomView];
-    [self.imageZoomView setFrame:self.bounds];
 }
 
 - (KIZoomImageView *)imageZoomView {

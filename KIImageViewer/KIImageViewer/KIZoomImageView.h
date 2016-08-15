@@ -10,6 +10,7 @@
 
 @class KIZoomImageView;
 typedef void(^KIZoomImageViewDidClickBlock) (KIZoomImageView *view);
+typedef void(^KIZoomImageViewLongPressBlock) (KIZoomImageView *view);
 
 @interface KIZoomImageView : UIScrollView
 
@@ -26,5 +27,6 @@ typedef void(^KIZoomImageViewDidClickBlock) (KIZoomImageView *view);
 - (UITapGestureRecognizer *)tapGesture;
 
 - (void)setDidClickBlock:(KIZoomImageViewDidClickBlock)block;
+- (void)setLongPressBlock:(KIZoomImageViewLongPressBlock)block;
 
 @end

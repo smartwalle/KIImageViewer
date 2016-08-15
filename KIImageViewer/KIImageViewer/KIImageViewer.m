@@ -9,6 +9,7 @@
 #import "KIImageViewer.h"
 #import "UIImage+KIImageViewer.h"
 #import "UIImageView+WebCache.h"
+#import "KIActionSheet.h"
 
 @interface KIImageViewer () <KIImageCollectionViewDelegate>
 @property (nonatomic, strong) KIImageCollectionView *collectionView;
@@ -69,6 +70,39 @@
 
 - (void)collectionView:(KIImageCollectionView *)collectionView didClickedItem:(KIImageCollectionViewCell *)cell {
     [self dismiss];
+}
+
+- (void)collectionView:(KIImageCollectionView *)collectionView didLongPressItem:(KIImageCollectionViewCell *)cell {
+    KIActionSheet *actionSheet = [[KIActionSheet alloc] initWithTitle:nil
+                                                    cancelButtonTitle:NSLocalizedString(@"取消", nil)
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"保存到相册", nil];
+    __weak KIImageCollectionViewCell *weakCell = cell;
+    __weak KIImageViewer *weakSelf = self;
+    [actionSheet setClickedButtonAtIndexBlock:^(KIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if (buttonIndex == 0) {
+            UIImageWriteToSavedPhotosAlbum(weakCell.imageZoomView.image,
+                                           weakSelf,
+                                           @selector(image:didFinishSavingWithError:contextInfo:),
+                                           NULL);
+        }
+    }];
+    [actionSheet show];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *msg = nil ;
+    if (error != NULL) {
+        msg = NSLocalizedString(@"保存图片失败", nil);
+    } else {
+        msg = NSLocalizedString(@"保存图片成功", nil);
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:msg
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)collectionView:(KIImageCollectionView *)collectionView configCell:(KIImageCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

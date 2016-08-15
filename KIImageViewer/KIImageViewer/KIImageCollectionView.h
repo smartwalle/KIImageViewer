@@ -15,6 +15,7 @@
 @optional
 - (NSInteger)numberOfImages:(KIImageCollectionView *)collectionView;
 - (void)collectionView:(KIImageCollectionView *)collectionView didClickedItem:(KIImageCollectionViewCell *)cell;
+- (void)collectionView:(KIImageCollectionView *)collectionView didLongPressItem:(KIImageCollectionViewCell *)cell;
 - (void)collectionView:(KIImageCollectionView *)collectionView configCell:(KIImageCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionView:(KIImageCollectionView *)collectionView didEndDisplayingCell:(KIImageCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 @end

@@ -96,6 +96,12 @@
         }
     }];
     
+    [zv setLongPressBlock:^(KIZoomImageView *view) {
+        if (weakSelf.imageDelegate != nil && [weakSelf.imageDelegate respondsToSelector:@selector(collectionView:didLongPressItem:)]) {
+            [weakSelf.imageDelegate collectionView:weakSelf didLongPressItem:weakCell];
+        }
+    }];
+    
     if (self.imageDelegate != nil && [self.imageDelegate respondsToSelector:@selector(collectionView:configCell:atIndexPath:)]) {
         [self.imageDelegate collectionView:self configCell:cell atIndexPath:indexPath];
     }

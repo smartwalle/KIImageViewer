@@ -21,17 +21,16 @@
 		188B5D181D5D7CAC0050FD9B /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D171D5D7CAC0050FD9B /* 6.jpg */; };
 		188B5D1A1D5D9D5A0050FD9B /* c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D191D5D9D5A0050FD9B /* c.jpg */; };
 		188B5D1D1D5DA45A0050FD9B /* d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D1C1D5DA45A0050FD9B /* d.jpg */; };
-		D067B4D382171FCFDED5D06E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00573407FED6D630FD560FAE /* libPods.a */; };
 		D51971C21D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */; };
 		D59609751D5CBF1500B02310 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609701D5CBF1500B02310 /* 1.jpg */; };
 		D59609761D5CBF1500B02310 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609711D5CBF1500B02310 /* 2.jpg */; };
 		D59609771D5CBF1500B02310 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609721D5CBF1500B02310 /* 3.jpg */; };
 		D59609781D5CBF1500B02310 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609731D5CBF1500B02310 /* 4.jpg */; };
 		D59609791D5CBF1500B02310 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609741D5CBF1500B02310 /* 5.jpg */; };
+		E807C46CF95FFC9DC43A7238 /* libPods-KIImageViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD83FF96D921D819FDD6D27 /* libPods-KIImageViewer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00573407FED6D630FD560FAE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		185690451D615033004D1027 /* a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpg; sourceTree = "<group>"; };
 		187DAC6E1D5C132E00B8F2D0 /* KIImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KIImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187DAC721D5C132E00B8F2D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +53,8 @@
 		188B5D171D5D7CAC0050FD9B /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		188B5D191D5D9D5A0050FD9B /* c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c.jpg; sourceTree = "<group>"; };
 		188B5D1C1D5DA45A0050FD9B /* d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpg; sourceTree = "<group>"; };
+		69E731683632A53BF81FBA13 /* Pods-KIImageViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KIImageViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer.release.xcconfig"; sourceTree = "<group>"; };
+		791EA7FB8F828B43DB41C2BF /* Pods-KIImageViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KIImageViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		D51971C01D5ECD3A0009C1FF /* UIImageView+KIImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+KIImageViewer.h"; sourceTree = "<group>"; };
 		D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+KIImageViewer.m"; sourceTree = "<group>"; };
 		D59609701D5CBF1500B02310 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -61,8 +62,7 @@
 		D59609721D5CBF1500B02310 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		D59609731D5CBF1500B02310 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		D59609741D5CBF1500B02310 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		EFC3798FF62DB087E3677427 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		FEAA35AA28AB86D0476E4AE8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DFD83FF96D921D819FDD6D27 /* libPods-KIImageViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KIImageViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D067B4D382171FCFDED5D06E /* libPods.a in Frameworks */,
+				E807C46CF95FFC9DC43A7238 /* libPods-KIImageViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +82,8 @@
 			children = (
 				187DAC701D5C132E00B8F2D0 /* KIImageViewer */,
 				187DAC6F1D5C132E00B8F2D0 /* Products */,
-				4EE87304437C53326C292AC1 /* Pods */,
-				76B4C087EDD781B26C836302 /* Frameworks */,
+				3AAF95FDDC147D8D14319228 /* Pods */,
+				97A447E76A40787F0687D238 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,19 +138,19 @@
 			path = KIImageViewer;
 			sourceTree = "<group>";
 		};
-		4EE87304437C53326C292AC1 /* Pods */ = {
+		3AAF95FDDC147D8D14319228 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FEAA35AA28AB86D0476E4AE8 /* Pods.debug.xcconfig */,
-				EFC3798FF62DB087E3677427 /* Pods.release.xcconfig */,
+				791EA7FB8F828B43DB41C2BF /* Pods-KIImageViewer.debug.xcconfig */,
+				69E731683632A53BF81FBA13 /* Pods-KIImageViewer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		76B4C087EDD781B26C836302 /* Frameworks */ = {
+		97A447E76A40787F0687D238 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00573407FED6D630FD560FAE /* libPods.a */,
+				DFD83FF96D921D819FDD6D27 /* libPods-KIImageViewer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 187DAC851D5C132E00B8F2D0 /* Build configuration list for PBXNativeTarget "KIImageViewer" */;
 			buildPhases = (
-				E45815C17AEBE51DDEBE3D0C /* Check Pods Manifest.lock */,
+				A348AADB64FADC9524F20A12 /* 📦 Check Pods Manifest.lock */,
 				187DAC6A1D5C132E00B8F2D0 /* Sources */,
 				187DAC6B1D5C132E00B8F2D0 /* Frameworks */,
 				187DAC6C1D5C132E00B8F2D0 /* Resources */,
-				E606CFE69F6B479F31FF51DD /* Embed Pods Frameworks */,
-				6FF35D5642509616E8145772 /* Copy Pods Resources */,
+				DB94D387C1B295E1BE1E3919 /* 📦 Embed Pods Frameworks */,
+				C8DEEB2B0F4F11F677340479 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,29 +249,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FF35D5642509616E8145772 /* Copy Pods Resources */ = {
+		A348AADB64FADC9524F20A12 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E45815C17AEBE51DDEBE3D0C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,19 +264,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E606CFE69F6B479F31FF51DD /* Embed Pods Frameworks */ = {
+		C8DEEB2B0F4F11F677340479 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB94D387C1B295E1BE1E3919 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -418,10 +418,11 @@
 		};
 		187DAC861D5C132E00B8F2D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEAA35AA28AB86D0476E4AE8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 791EA7FB8F828B43DB41C2BF /* Pods-KIImageViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KIImageViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartwalle.KIImageViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,10 +431,11 @@
 		};
 		187DAC871D5C132E00B8F2D0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC3798FF62DB087E3677427 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 69E731683632A53BF81FBA13 /* Pods-KIImageViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KIImageViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartwalle.KIImageViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

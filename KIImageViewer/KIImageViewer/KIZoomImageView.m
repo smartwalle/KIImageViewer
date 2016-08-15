@@ -23,10 +23,12 @@
 @property (nonatomic, assign) CGPoint          pointToCenterAfterResize;
 @property (nonatomic, assign) CGFloat          scaleToRestoreAfterResize;
 
-@property (nonatomic, strong) UITapGestureRecognizer *zoomTapGesture;
-@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+@property (nonatomic, strong) UITapGestureRecognizer       *zoomTapGesture;
+@property (nonatomic, strong) UITapGestureRecognizer       *tapGesture;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 
 @property (nonatomic, copy) KIZoomImageViewDidClickBlock zoomImageViewDidClickBlock;
+@property (nonatomic, copy) KIZoomImageViewLongPressBlock zoomImageViewLongPressBlock;
 @end
 
 @implementation KIZoomImageView
@@ -66,6 +68,12 @@
     [self.zoomTapGesture setNumberOfTapsRequired:2];
     [self.tapGesture requireGestureRecognizerToFail:self.zoomTapGesture];
     [self addGestureRecognizer:self.zoomTapGesture];
+    
+    self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(longPressGestureAction:)];
+//    [self.longPressGesture requireGestureRecognizerToFail:self.tapGesture];
+//    [self.longPressGesture requireGestureRecognizerToFail:self.zoomTapGesture];
+    [self addGestureRecognizer:self.longPressGesture];
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -110,6 +118,12 @@
     }
     
     [self setZoomScale:zoomScale animated:YES];
+}
+
+- (void)longPressGestureAction:(UILongPressGestureRecognizer *)sender {
+    if (self.zoomImageViewLongPressBlock != nil && sender.state == UIGestureRecognizerStateBegan) {
+        self.zoomImageViewLongPressBlock(self);
+    }
 }
 
 
@@ -258,6 +272,10 @@
 
 - (void)setDidClickBlock:(KIZoomImageViewDidClickBlock)block {
     self.zoomImageViewDidClickBlock = block;
+}
+
+- (void)setLongPressBlock:(KIZoomImageViewLongPressBlock)block {
+    self.zoomImageViewLongPressBlock = block;
 }
 
 @end

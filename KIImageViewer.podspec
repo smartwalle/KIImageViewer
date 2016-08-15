@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/smartwalle/KIImageViewer.git", :tag => "#{s.version}" }
   s.source_files = "KIImageViewer/KIImageViewer/**/*.{h,m}"
   s.requires_arc = true
-  s.dependency "SDWebImage", "KIActionSheet"
+  s.dependency "SDWebImage"
+  s.dependency "KIActionSheet"
 end

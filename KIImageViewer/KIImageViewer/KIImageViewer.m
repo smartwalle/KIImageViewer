@@ -76,7 +76,7 @@
     KIActionSheet *actionSheet = [[KIActionSheet alloc] initWithTitle:nil
                                                     cancelButtonTitle:NSLocalizedString(@"取消", nil)
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"保存到相册", nil];
+                                                    otherButtonTitles:NSLocalizedString(@"保存到相册", nil), nil];
     __weak KIImageCollectionViewCell *weakCell = cell;
     __weak KIImageViewer *weakSelf = self;
     [actionSheet setClickedButtonAtIndexBlock:^(KIActionSheet *actionSheet, NSInteger buttonIndex) {

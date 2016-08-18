@@ -12,7 +12,7 @@
 
 - (CGFloat)height {
     CGFloat h = MIN(self.contentSize.height, CGRectGetHeight(self.superview.bounds)-88);
-    if (self.contentSize.height > self.superview.bounds.size.height) {
+    if (self.contentSize.height > h) {
         [self setScrollEnabled:YES];
     } else {
         [self setScrollEnabled:NO];

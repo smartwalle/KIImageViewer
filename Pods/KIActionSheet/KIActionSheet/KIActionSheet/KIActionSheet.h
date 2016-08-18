@@ -19,17 +19,25 @@ typedef void(^KIActionSheetDidDismissWithButtonIndexBlock)  (KIActionSheet *acti
 
 @interface KIActionSheet : UIView
 
-@property(nonatomic, readonly) NSInteger numberOfButtons;
-@property(nonatomic, readonly) NSInteger cancelButtonIndex;
-@property(nonatomic, readonly) NSInteger destructiveButtonIndex;
+@property (nonatomic, copy) NSString *title;
+
+@property (nonatomic, readonly) NSInteger numberOfButtons;
+@property (nonatomic, readonly) NSInteger cancelButtonIndex;
+@property (nonatomic, readonly) NSInteger destructiveButtonIndex;
 
 - (instancetype)initWithTitle:(NSString *)title
             cancelButtonTitle:(NSString *)cancelButtonTitle
        destructiveButtonTitle:(NSString *)destructiveButtonTitle
             otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
+// 添加一个 Button， 如果 Title 已经存在，或者添加失败，则会返回  -1;
+- (NSInteger)addButtonWithTitle:(NSString *)title;
+- (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
+
+- (void)setCancelButtonTitle:(NSString *)title;
+- (void)setDestructiveButtonTitle:(NSString *)title;
+
 - (void)show;
-//- (void)showInView:(UIView *)view;
 
 - (void)dismiss;
 

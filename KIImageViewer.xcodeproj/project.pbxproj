@@ -21,6 +21,7 @@
 		188B5D181D5D7CAC0050FD9B /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D171D5D7CAC0050FD9B /* 6.jpg */; };
 		188B5D1A1D5D9D5A0050FD9B /* c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D191D5D9D5A0050FD9B /* c.jpg */; };
 		188B5D1D1D5DA45A0050FD9B /* d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 188B5D1C1D5DA45A0050FD9B /* d.jpg */; };
+		18B035791D6A87C90040ABA2 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18B035781D6A87C90040ABA2 /* 7.jpg */; };
 		D51971C21D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D51971C11D5ECD3A0009C1FF /* UIImageView+KIImageViewer.m */; };
 		D59609751D5CBF1500B02310 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609701D5CBF1500B02310 /* 1.jpg */; };
 		D59609761D5CBF1500B02310 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D59609711D5CBF1500B02310 /* 2.jpg */; };
@@ -53,6 +54,7 @@
 		188B5D171D5D7CAC0050FD9B /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		188B5D191D5D9D5A0050FD9B /* c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = c.jpg; sourceTree = "<group>"; };
 		188B5D1C1D5DA45A0050FD9B /* d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpg; sourceTree = "<group>"; };
+		18B035781D6A87C90040ABA2 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		69E731683632A53BF81FBA13 /* Pods-KIImageViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KIImageViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer.release.xcconfig"; sourceTree = "<group>"; };
 		791EA7FB8F828B43DB41C2BF /* Pods-KIImageViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KIImageViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KIImageViewer/Pods-KIImageViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		D51971C01D5ECD3A0009C1FF /* UIImageView+KIImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+KIImageViewer.h"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				185690451D615033004D1027 /* a.jpg */,
+				18B035781D6A87C90040ABA2 /* 7.jpg */,
 				188B5D1C1D5DA45A0050FD9B /* d.jpg */,
 				188B5D191D5D9D5A0050FD9B /* c.jpg */,
 				188B5D171D5D7CAC0050FD9B /* 6.jpg */,
@@ -234,6 +237,7 @@
 				188B5D1D1D5DA45A0050FD9B /* d.jpg in Resources */,
 				188B5D1A1D5D9D5A0050FD9B /* c.jpg in Resources */,
 				187DAC811D5C132E00B8F2D0 /* LaunchScreen.storyboard in Resources */,
+				18B035791D6A87C90040ABA2 /* 7.jpg in Resources */,
 				D59609791D5CBF1500B02310 /* 5.jpg in Resources */,
 				D59609761D5CBF1500B02310 /* 2.jpg in Resources */,
 				D59609751D5CBF1500B02310 /* 1.jpg in Resources */,

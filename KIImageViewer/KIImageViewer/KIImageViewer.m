@@ -279,7 +279,7 @@
 - (void)processLongImage:(UIImage *)image cell:(KIImageCollectionViewCell *)cell {
     CGSize imageSize = image.size;
     if (imageSize.width * 2 < imageSize.height) {
-        [cell.imageZoomView setZoomScale:(self.mainViewBounds.size.width/imageSize.width)+0.0009 animated:NO];
+        [cell.imageZoomView setZoomScale:(self.mainViewBounds.size.width/imageSize.width)-0.0001 animated:NO];
         [cell.imageZoomView setContentOffset:CGPointMake(0, 0)];
     }
 }

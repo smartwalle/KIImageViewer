@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iv4;
 @property (weak, nonatomic) IBOutlet UIImageView *iv5;
 @property (weak, nonatomic) IBOutlet UIImageView *iv6;
+@property (weak, nonatomic) IBOutlet UIImageView *iv7;
 @end
 
 @implementation ViewController
@@ -33,19 +34,24 @@
     [self.iv4 setupImageViewerWithDelegate:self initialIndex:3];
     [self.iv5 setupImageViewerWithDelegate:self initialIndex:4];
     [self.iv6 setupImageViewerWithDelegate:self initialIndex:5];
+    [self.iv7 setupImageViewerWithDelegate:self initialIndex:6];
 }
 
 
 - (NSURL *)imageViewer:(KIImageViewer *)imageViewer imageURLAtIndex:(NSInteger)index {
+    if (index == 6) {
+        return [NSURL URLWithString:@"http://7xjcby.com2.z0.glb.qiniucdn.com/file/1471572892711fd1ems1rae3zncdi.jpg"];
+    }
     return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%d.jpg", index+1]];
 }
 
 - (UIImage *)imageViewer:(KIImageViewer *)imageViewer placeholderImageAtIndex:(NSInteger)index {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg", index+1]];
+    UIImageView *iv = [self.view viewWithTag:100+index];
+    return iv.image;
 }
 
 - (NSInteger)numberOfImages:(KIImageViewer *)imageViewer {
-    return 6;
+    return 7;
 }
 
 - (UIView *)imageViewer:(KIImageViewer *)imageViewer targetViewAtIndex:(NSInteger)index {

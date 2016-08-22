@@ -51,8 +51,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cYN-uy-5v7">
                                 <rect key="frame" x="169" y="228" width="114" height="67"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="105" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="6.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AuN-Ms-338">
-                                <rect key="frame" x="37" y="353" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="105" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="6.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AuN-Ms-338">
+                                <rect key="frame" x="37" y="353" width="97" height="106"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="106" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="7.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VJN-8I-1vV">
+                                <rect key="frame" x="169" y="315" width="131" height="181"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.76078431369999999" green="0.79607843140000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,6 +71,7 @@
                         <outlet property="iv4" destination="cYN-uy-5v7" id="MHb-Je-dp6"/>
                         <outlet property="iv5" destination="1HG-3b-k3e" id="h5M-rB-XPi"/>
                         <outlet property="iv6" destination="AuN-Ms-338" id="BnQ-u2-GXr"/>
+                        <outlet property="iv7" destination="VJN-8I-1vV" id="fFm-KG-2tp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,6 +85,7 @@
         <image name="4.jpg" width="1920" height="1200"/>
         <image name="5.jpg" width="1920" height="1200"/>
         <image name="6.jpg" width="650" height="365"/>
+        <image name="7.jpg" width="455" height="1600"/>
         <image name="a.jpg" width="200" height="356"/>
     </resources>
 </document>

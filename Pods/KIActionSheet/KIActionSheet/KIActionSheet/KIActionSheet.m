@@ -196,6 +196,12 @@
     }
     return 0;
 }
+    
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc] init];
+    [v setBackgroundColor:[UIColor clearColor]];
+    return v;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kTitleSection || [[self.dataSource objectForKey:kActionSheetTitleKey] count] > 0) {
@@ -230,9 +236,9 @@
     if (indexPath.section == kTitleSection) {
         title = [[self.dataSource objectForKey:kActionSheetTitleKey] firstObject];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell.textLabel setFont:[UIFont systemFontOfSize:12.0f]];
+        [cell.textLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [cell.textLabel setTextColor:[UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1.00]];
-        [cell.textLabel setNumberOfLines:3];
+        [cell.textLabel setNumberOfLines:2];
     } else if (indexPath.section == kTitleListSection) {
         NSArray *list = [self.dataSource objectForKey:kActionSheetTitleListKey];
         title = [list objectAtIndex:indexPath.row];
@@ -461,7 +467,7 @@
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
-        [_tableView setBackgroundColor:[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:0.4f]];
+        [_tableView setBackgroundColor:[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:0.0f]];
         [_tableView setBounces:NO];
         [_tableView setShowsVerticalScrollIndicator:NO];
         [_tableView setShowsHorizontalScrollIndicator:NO];

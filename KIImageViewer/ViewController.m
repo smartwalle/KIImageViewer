@@ -40,7 +40,7 @@
 
 - (NSURL *)imageViewer:(KIImageViewer *)imageViewer imageURLAtIndex:(NSInteger)index {
     if (index == 6) {
-        return [NSURL URLWithString:@"http://7xjcby.com2.z0.glb.qiniucdn.com/file/1471572892711fd1ems1rae3zncdi.jpg"];
+        return [NSURL URLWithString:@"http://ypd-smok.oss-cn-shanghai.aliyuncs.com/static/res/upload/resource/2016-8-312016-08-31/d2a2bfb9d53145eaa5b2c016402aca4d.jpg"];
     }
     return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%d.jpg", index+1]];
 }

@@ -85,7 +85,7 @@
         <image name="4.jpg" width="1920" height="1200"/>
         <image name="5.jpg" width="1920" height="1200"/>
         <image name="6.jpg" width="650" height="365"/>
-        <image name="7.jpg" width="455" height="1600"/>
+        <image name="7.jpg" width="760" height="1600"/>
         <image name="a.jpg" width="200" height="356"/>
     </resources>
 </document>

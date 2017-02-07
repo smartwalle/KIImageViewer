@@ -38,6 +38,9 @@
     [self setDataSource:self];
     [self setShowsVerticalScrollIndicator:NO];
     [self setShowsHorizontalScrollIndicator:NO];
+    if ([self respondsToSelector:@selector(setPrefetchingEnabled:)]) {
+        [self performSelector:@selector(setPrefetchingEnabled:) withObject:NO];
+    }
 }
 
 - (void)setFrame:(CGRect)frame {

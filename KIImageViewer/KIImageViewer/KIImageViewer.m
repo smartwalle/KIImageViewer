@@ -8,7 +8,6 @@
 
 #import "KIImageViewer.h"
 #import "UIImage+KIImageViewer.h"
-#import "UIImageView+WebCache.h"
 #import "KIActionSheet.h"
 
 @interface KIImageViewer () <KIImageCollectionViewDelegate>

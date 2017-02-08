@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KIImageCollectionView.h"
+#import "UIImageView+WebCache.h"
 
 @class KIImageViewer;
 

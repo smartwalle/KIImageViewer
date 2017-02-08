@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '33C2C788CFE73888FED8E6D968AD3808'
+               BlueprintIdentifier = 'BCB31320640E72CF11673B773B5D4E09'
                BlueprintName = 'KIActionSheet'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libKIActionSheet.a'>

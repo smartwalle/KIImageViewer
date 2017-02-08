@@ -1,8 +1,8 @@
 PODS:
   - KIActionSheet (0.0.4)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - KIActionSheet
@@ -10,8 +10,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   KIActionSheet: 280aceb3897da0c5a1e04cdc94561f9e1291c683
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
 PODFILE CHECKSUM: d25a8842a8d3708c0ef9262157f02ec232f1dc2f
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0

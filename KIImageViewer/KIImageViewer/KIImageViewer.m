@@ -221,7 +221,6 @@
     CGRect frame = CGRectZero;
     
     if (cell != nil) {
-        [cell.imageZoomView.imageView sd_cancelCurrentImageLoad];
         [cell.imageZoomView.imageView sd_cancelCurrentAnimationImagesLoad];
         
         indexPath = [self.collectionView indexPathForCell:cell];
@@ -264,7 +263,7 @@
     [cell.imageZoomView.imageView sd_setImageWithURL:url
                                     placeholderImage:placeholderImage
                                              options:0
-                                            progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                            progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                                             } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                 if (image != nil) {
                                                     [cell.imageZoomView resetImageViewFrame];

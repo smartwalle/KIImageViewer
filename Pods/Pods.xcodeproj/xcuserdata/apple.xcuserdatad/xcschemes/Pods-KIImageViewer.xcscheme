@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6663CDCAA72C2AB213AC098E6505B1A6'
+               BlueprintIdentifier = 'C3E5918627DCD7B1265AE3E6FD679862'
                BlueprintName = 'Pods-KIImageViewer'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-KIImageViewer.a'>

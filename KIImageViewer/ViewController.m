@@ -39,8 +39,8 @@
 
 
 - (NSURL *)imageViewer:(KIImageViewer *)imageViewer imageURLAtIndex:(NSInteger)index {
-    if (index == 6) {
-        return [NSURL URLWithString:@"http://ypd-smok.oss-cn-shanghai.aliyuncs.com/static/res/upload/resource/2016-8-312016-08-31/d2a2bfb9d53145eaa5b2c016402aca4d.jpg"];
+    if (index == 5) {
+        return [NSURL URLWithString:@"http://oh12aet29.bkt.gdipper.com/IMG_3000b.JPG"];
     }
     return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%d.jpg", index+1]];
 }

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A7F6C4B9F7B645F797CE1B43B4D2F04C00F95A07",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A7F6C4B9F7B645F797CE1B43B4D2F04C00F95A07" : 9223372036854775807,
+    "13890B229EF7EF31AA0D88922AC20270640BD802" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2576FCE5-919A-4D56-B36C-A0B88A15BCCD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A7F6C4B9F7B645F797CE1B43B4D2F04C00F95A07" : "KIImageViewer\/",
+    "13890B229EF7EF31AA0D88922AC20270640BD802" : "KIAdditions\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KIImageViewer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KIImageViewer.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:smartwalle\/KIAdditions.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "13890B229EF7EF31AA0D88922AC20270640BD802"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:smartwalle\/KIImageViewer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A7F6C4B9F7B645F797CE1B43B4D2F04C00F95A07"
+    }
+  ]
+}
